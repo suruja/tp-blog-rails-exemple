@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.paginate page: params[:page], per_page: 4
+  end
+
+  def show
+    @article = Article.find params[:id]
   end
 
   def new
@@ -8,16 +12,20 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new
-    @article.title = params[:article][:title]
-    @article.body = params[:article][:body]
-    @article.save
-    if @article.persisted?
-      flash[:alert] = "Bravo !"
+    @article = Article.new article_params
+    if @article.save
+      flash[:alert] = "Votre article a bien été enregistré."
       redirect_to action: :index
     else
-      flash[:alert] = "Attention !"
+      flash[:alert] = "Votre article n'a pas pu être enregistré."
       render "new"
     end
+  end
+
+
+  private
+
+  def article_params
+    params.require(:article).permit(:title, :body)
   end
 end

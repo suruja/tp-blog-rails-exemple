@@ -16,11 +16,14 @@
 #
 development:
   adapter: postgresql
+  # if you have PostgreSQL issues, use instead:
+  # adapter: sqlite3
   encoding: unicode
-  database: rappelrails_development
+  database: my_blog_development
   pool: 5
+  host: localhost
   username: pguser
-  password:
+  password: 123soleil
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -45,16 +48,20 @@ development:
 # Do not set this db to the same as development or production.
 test:
   adapter: postgresql
+  # if you have PostgreSQL issues, use instead:
+  # adapter: sqlite3
   encoding: unicode
-  database: rappelrails_test
+  database: my_blog_test
+  host: localhost
   pool: 5
   username: pguser
-  password:
+  password: 123soleil
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: rappelrails_production
+  database: my_blog_production
+  host: localhost
   pool: 5
-  username: rappelrails
-  password:
+  username: pguser
+  password: 123soleil

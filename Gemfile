@@ -3,22 +3,29 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
-# Use postgresql as the database for Active Record
+# Use PostgreSQL as the database for Active Record
 gem 'pg'
 
+# Use sqlite3 if you have troubles with PostgreSQL
+# gem 'sqlite3'
+
+# Use HAML for views
 gem 'haml-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
+# Use Twitter Bootstrap SASS
+gem 'bootstrap-sass'
+
+# Use WillPaginate
+gem 'will_paginate'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

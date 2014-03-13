@@ -1,10 +1,8 @@
-Rappelrails::Application.routes.draw do
+MyBlog::Application.routes.draw do
 
-  get "/welcome" => "welcome#peuimporte"
+  root 'articles#index'
+  resources :articles
 
-  get "/articles" => "articles#index"
-  get "/articles/new" => "articles#new"
-  post "/articles" => "articles#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

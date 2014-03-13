@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Rappelrails::Application.load_tasks
+MyBlog::Application.load_tasks

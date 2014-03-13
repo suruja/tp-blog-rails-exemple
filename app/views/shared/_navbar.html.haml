@@ -1,0 +1,18 @@
+%nav.navbar.navbar-default{role: "navigation"}
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#bs-navbar", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Afficher / Masquer la navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %span.navbar-brand Mon blog
+    / Collect the nav links, forms, and other content for toggling
+    #bs-navbar.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li{class: "#{'active' if params[:controller] == 'articles' and params[:action] == 'index'}"}
+          = link_to articles_path do
+            Articles
+        %li{class: "#{'active' if params[:controller] == 'articles' and params[:action] == 'new'}"}
+          = link_to new_article_path do
+            Nouvel article
