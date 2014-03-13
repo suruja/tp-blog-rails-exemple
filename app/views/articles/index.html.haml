@@ -1,11 +1,43 @@
-%ul.list-unstyled
-  - @articles.each do |article|
-    %li
-      %h3
-        = article.title
-      %p
-        = article.body[0..200]
-      %a{href: "/articles/#{article.id}"}
-        Lire l'article
+.row
+  .col-md-12
+    .page-header
+      %h1
+        Mes articles
 
-= will_paginate @articles
+.row
+  .col-md-4
+    .list-group
+      %a#red-titles.list-group-item{href: "#"}
+        Titres en rouge
+      %a#bigger-titles.list-group-item{href: "#"}
+        Titres plus grand
+      %a#toggle-articles.list-group-item{href: "#"}
+        Afficher / masquer les articles
+      %a#remove-article-links.list-group-item{href: "#"}
+        Supprimer les liens vers les articles
+      %a#align-right.list-group-item{href: "#"}
+        2e et 4e articles alignés à droite
+      %a#go-next-page.list-group-item{href: "#"}
+        Aller à la page suivante
+      %a#go-previous-page.list-group-item{href: "#"}
+        Aller à la page précédente
+      %a#reverse-list.list-group-item{href: "#"}
+        Inverser l'ordre d affichage des articles
+      %a#invert-titles-bodies.list-group-item{href: "#"}
+        Inverser les titres et les corps de texte
+      %a#load-more-articles.list-group-item{href: "#"}
+        Charger en AJAX les articles de la page suivante et les ajouter à la suite
+      %a#load-welcome-and-log.list-group-item{href: "#"}
+        Charger en AJAX le dernier article et afficher uniquement le corps du texte dans la console
+
+  .col-md-8
+    %ul.list-unstyled.articles
+      - @articles.each do |article|
+        %li
+          %h3
+            = article.title
+          %p
+            = article.body[0..200]
+          %a{href: "/articles/#{article.id}"}
+            Lire l'article
+    = will_paginate @articles
